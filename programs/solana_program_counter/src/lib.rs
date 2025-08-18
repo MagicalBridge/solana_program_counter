@@ -23,6 +23,14 @@ pub mod solana_program_counter {
         Ok(())
     }
 
+    /// 递减计数器，任何人都可以调用
+    pub fn decrement(ctx: Context<Decrement>) -> Result<()> {
+        let counter = &mut ctx.accounts.counter;
+        counter.count = counter.count.saturating_sub(1);
+        msg!("计数器已递减，当前值: {}", counter.count);
+        Ok(())
+    }
+
     /// 升级合约，只有部署者可以调用
     pub fn upgrade(_ctx: Context<Upgrade>) -> Result<()> {
         msg!("合约升级功能已调用");
@@ -63,6 +71,17 @@ pub struct Initialize<'info> {
 /// 递增指令的账户结构
 #[derive(Accounts)]
 pub struct Increment<'info> {
+    #[account(
+        mut,
+        seeds = [b"counter"],
+        bump
+    )]
+    pub counter: Account<'info, Counter>,
+}
+
+/// 递减指令的账户结构
+#[derive(Accounts)]
+pub struct Decrement<'info> {
     #[account(
         mut,
         seeds = [b"counter"],

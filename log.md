@@ -72,3 +72,14 @@ solana program show 5vGZ6LoqMP7j8e8XU5cAvdh1UJHhPnEj1vrqMAfQdcLD --url devnet
 # Data Length: 211080 (0x33888) bytes
 # Balance: 1.47032088 SOL
 ```
+
+## 升级程序的命令
+```shell
+anchor upgrade target/deploy/solana_program_counter.so --program-id 5vGZ6LoqMP7j8e8XU5cAvdh1UJHhPnEj1vrqMAfQdcLD --provider.cluster devnet
+
+
+# <cAvdh1UJHhPnEj1vrqMAfQdcLD --provider.cluster devnet
+# Program Id: 5vGZ6LoqMP7j8e8XU5cAvdh1UJHhPnEj1vrqMAfQdcLD
+
+# Signature: 4CBE2MGEYBz7QzR6FuUPDQhVuVF4sxTYUEYhXttPJjo8yKFQhQWdhTBTSdGLtsoJAEXPsMVKZWVBJeTW4fAatqtJ
+```

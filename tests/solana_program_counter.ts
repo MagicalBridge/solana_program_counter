@@ -54,6 +54,29 @@ describe("solana_program_counter", () => {
     expect(counterAccount.count.toNumber()).to.equal(2);
   });
 
+  it("测试新的递减功能", async () => {
+    // 先获取当前计数值
+    let counterAccount = await program.account.counter.fetch(counterPda);
+    const currentCount = counterAccount.count.toNumber();
+    console.log("递减前的计数值:", currentCount);
+    
+    // 执行递减操作
+    const tx = await program.methods.decrement().accounts({
+      counter: counterPda,
+    }).rpc();
+    
+    console.log("递减交易签名:", tx);
+    
+    // 验证计数值已正确递减
+    counterAccount = await program.account.counter.fetch(counterPda);
+    const newCount = counterAccount.count.toNumber();
+    console.log("递减后的计数值:", newCount);
+    
+    // 使用 saturating_sub，所以如果当前值为0，递减后仍为0
+    const expectedCount = currentCount > 0 ? currentCount - 1 : 0;
+    expect(newCount).to.equal(expectedCount);
+  });
+
   it("只有部署者可以调用升级功能", async () => {
     // 部署者调用升级功能应该成功
     const tx = await program.methods.upgrade().accounts({
