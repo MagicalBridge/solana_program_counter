@@ -85,7 +85,6 @@ anchor upgrade target/deploy/solana_program_counter.so --program-id 5vGZ6LoqMP7j
 
 ## 同步新的密钥
 ```shell
-anchor key sync
-
+anchor keys sync
 # 上面的命令，不一定能够替换的足够干净，需要手动检查一下
 ``` 

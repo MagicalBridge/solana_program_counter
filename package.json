@@ -2,6 +2,7 @@
   "license": "ISC",
   "scripts": {
     "build": "anchor build",
+    "keys:sync": "anchor keys sync",
     "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",
     "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check"
   },
