@@ -1,12 +1,12 @@
 use anchor_lang::prelude::*;
 
-declare_id!("5vGZ6LoqMP7j8e8XU5cAvdh1UJHhPnEj1vrqMAfQdcLD");
+declare_id!("4CxFcW826yofaszKpcomVKewDJihsRjW28ss8ACAjL7x");
 
 #[program]
 pub mod solana_program_counter {
     use super::*;
 
-    /// 初始化计数器，设置初始值为0
+    // 初始化计数器，设置初始值为0
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
         let counter = &mut ctx.accounts.counter;
         counter.count = 0;
@@ -15,7 +15,7 @@ pub mod solana_program_counter {
         Ok(())
     }
 
-    /// 递增计数器，任何人都可以调用
+    // 递增计数器，任何人都可以调用
     pub fn increment(ctx: Context<Increment>) -> Result<()> {
         let counter = &mut ctx.accounts.counter;
         counter.count += 1;
@@ -23,7 +23,7 @@ pub mod solana_program_counter {
         Ok(())
     }
 
-    /// 递减计数器，任何人都可以调用
+    // 递减计数器，任何人都可以调用
     pub fn decrement(ctx: Context<Decrement>) -> Result<()> {
         let counter = &mut ctx.accounts.counter;
         counter.count = counter.count.saturating_sub(1);
@@ -31,7 +31,7 @@ pub mod solana_program_counter {
         Ok(())
     }
 
-    /// 升级合约，只有部署者可以调用
+    // 升级合约，只有部署者可以调用
     pub fn upgrade(_ctx: Context<Upgrade>) -> Result<()> {
         msg!("合约升级功能已调用");
         // 这里可以添加升级逻辑

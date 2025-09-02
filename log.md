@@ -4,7 +4,7 @@
 
 ```shell
 solana --version
-# solana-cli 2.2.16 (src:8211e913; feat:333842486, client:Agave)
+# solana-cli 2.3.8 (src:72664e23; feat:3640012085, client:Agave)
 ```
 
 ## 查看solana节点信息
@@ -43,7 +43,7 @@ solana transaction-history FWSAzQLPKEXWzoYbSm88AUnLyZWidVKekrFEW8xiCr8R
 ```shell
 solana balance FWSAzQLPKEXWzoYbSm88AUnLyZWidVKekrFEW8xiCr8R
 
-# 21.81722544 SOL
+# 31.81722544 SOL
 ```
 
 ## 升级solana cli 客户端
@@ -57,12 +57,12 @@ agave-install update
 ```shell
 solana-keygen pubkey target/deploy/solana_program_counter-keypair.json
 
-# 5vGZ6LoqMP7j8e8XU5cAvdh1UJHhPnEj1vrqMAfQdcLD
+# 4CxFcW826yofaszKpcomVKewDJihsRjW28ss8ACAjL7x
 ```
 
 ## 检查指定的程序信息
 ```shell
-solana program show 5vGZ6LoqMP7j8e8XU5cAvdh1UJHhPnEj1vrqMAfQdcLD --url devnet
+solana program show 5rgNZeJVQ3d4Vqd1fqCiD7ftzX2s4BcBJNLgzSmGdx34 --url devnet
 
 # Program Id: 5vGZ6LoqMP7j8e8XU5cAvdh1UJHhPnEj1vrqMAfQdcLD
 # Owner: BPFLoaderUpgradeab1e11111111111111111111111
@@ -77,9 +77,15 @@ solana program show 5vGZ6LoqMP7j8e8XU5cAvdh1UJHhPnEj1vrqMAfQdcLD --url devnet
 ```shell
 anchor upgrade target/deploy/solana_program_counter.so --program-id 5vGZ6LoqMP7j8e8XU5cAvdh1UJHhPnEj1vrqMAfQdcLD --provider.cluster devnet
 
-
 # <cAvdh1UJHhPnEj1vrqMAfQdcLD --provider.cluster devnet
 # Program Id: 5vGZ6LoqMP7j8e8XU5cAvdh1UJHhPnEj1vrqMAfQdcLD
 
 # Signature: 4CBE2MGEYBz7QzR6FuUPDQhVuVF4sxTYUEYhXttPJjo8yKFQhQWdhTBTSdGLtsoJAEXPsMVKZWVBJeTW4fAatqtJ
 ```
+
+## 同步新的密钥
+```shell
+anchor key sync
+
+# 上面的命令，不一定能够替换的足够干净，需要手动检查一下
+``` 
