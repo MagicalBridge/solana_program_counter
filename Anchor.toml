@@ -6,10 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.devnet]
-solana_program_counter = "4CxFcW826yofaszKpcomVKewDJihsRjW28ss8ACAjL7x"
-
-[programs.localnet]
-solana_program_counter = "4CxFcW826yofaszKpcomVKewDJihsRjW28ss8ACAjL7x"
+solana_program_counter = "HcBNNFLBRxBVocodDNFGdWA1DXH3R6wTJ2X1nTiVq3Hr"
 
 [registry]
 url = "https://api.apr.dev"
